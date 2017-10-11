@@ -1,16 +1,15 @@
+import java.util.Scanner;
 
 public class Second {
 
 
     public static void main(String[] args) {
 
-        int[] arr = new int[10];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = (int) (Math.random() * 100 - 50);
-            System.out.print(arr[i] + " ");
-        }
-        System.out.println();
-        System.out.println("max = " + Second.searchMax(arr));
+        Scanner input = new Scanner(System.in);
+        System.out.println("Введите набор чисел");
+        String arguments = input.nextLine();
+        int max = searchMax(convertToIntArray(arguments));
+        System.out.println("max = " + max);
 
     }
 
@@ -22,6 +21,17 @@ public class Second {
             }
         }
         return max;
+    }
+
+    public static int[] convertToIntArray(String args) {
+        args = args.replaceAll(" +"," ");
+        String[] argsArr = args.split(" ");
+        int[] arr = new int[argsArr.length];
+        for(int i = 0; i < argsArr.length; i++) {
+            argsArr[i] = argsArr[i].replaceAll(" ","");
+            arr[i] = Integer.parseInt(argsArr[i]);
+        }
+        return arr;
     }
 
 }
