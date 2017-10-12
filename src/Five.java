@@ -40,7 +40,7 @@ public class Five {
     public static String clearString(String in) {
         in = in.replaceAll("[^а-яёА-Я a-zA-Z]", "");
         /*in = in.replaceAll("[,.:;!?]", " ");*/
-        in = in.replaceAll("  ", " ");
+        in = in.replaceAll(" +", " ");
         in = in.toLowerCase();
         return in;
     }
