@@ -18,7 +18,14 @@ public class Nine {
         System.out.println();
 
         for (int i = 0; i < arr.length; i++) {
-            sortedBubble(arr[i]);
+            int[] helper;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (countSum(arr[i]) > countSum(arr[j])) {
+                    helper = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = helper;
+                }
+            }
         }
 
         for (int i = 0; i < arr.length; i++) {
@@ -27,6 +34,14 @@ public class Nine {
             }
             System.out.println();
         }
+
+        System.out.println();
+
+        for (int i = 0; i < arr.length; i++) {
+            int summ = countSum(arr[i]);
+            System.out.println("the sum of " + i + " array elements = " + summ);
+        }
+        System.out.println();
     }
 
 
