@@ -14,10 +14,28 @@ public class Seven {
             ins = sc.nextLine();
         }
         String[] words = Five.clearString(ins).split(" ");
-        Arrays.sort(words);
+        alphabetSort(words);
         for (String i : words) {
             System.out.print(i + " ");
         }
 
     }
+
+    public static void alphabetSort(String[] words) {
+
+        for (int i = 0; i < words.length; i++) {
+            for (int j = i + 1; j < words.length; j++) {
+                String helper;
+                int sub1 = (int) words[i].substring(0, 1).charAt(0);
+                int sub2 = (int) words[j].substring(0, 1).charAt(0);
+                if (sub2 < sub1) {
+                    helper = words[i];
+                    words[i] = words[j];
+                    words[j] = helper;
+                }
+            }
+        }
+
+    }
+
 }
